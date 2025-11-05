@@ -1,0 +1,14 @@
+sudo apt update -y
+sudo apt upgrade -y
+sudo apt install cron mailutils -y
+sudo systemctl enable cron
+sudo systemctl start cron
+sudo systemctl status cron
+sudo nano /usr/local/bin/auto_update.sh
+
+#Add the auto_update script here, Save & exit.
+
+sudo chmod +x /usr/local/bin/auto_update.sh
+sudo crontab -e
+0 6 * * * /usr/local/bin/auto_update.sh
+CRONTAB -L
